@@ -1,15 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[80]:
-
-
 #importing libraries
 import random
-
-
-# In[81]:
-
 
 #Drawing Board
 def drawboard(board):
@@ -20,10 +13,6 @@ def drawboard(board):
     print("   |   |")
     print(" " + board[7] + " | " + board[8] + " | " + board[9])
     print("   |   |")
-
-
-# In[82]:
-
 
 #Assigning letter from user 
 def inputPlayerLetter():
@@ -36,10 +25,6 @@ def inputPlayerLetter():
     else:
         return ['O', 'X']
 
-
-# In[83]:
-
-
 #First Chance
 def whoGoesFirst():
     if random.randint(0,1) == 0:
@@ -47,13 +32,6 @@ def whoGoesFirst():
     else:
         return 'player'
     
-
-            
-
-
-# In[84]:
-
-
 def playAgain():
     a = input('Do you want to play again?(y/n):').lower()
     if a == 'y':
@@ -61,17 +39,8 @@ def playAgain():
     else:
         return False
 
-
-# In[85]:
-
-
 def makeMove(board, move, letter):
     board[move] = letter
-    
-
-
-# In[86]:
-
 
 def isWinner(bo, le):
     return (
@@ -85,36 +54,20 @@ def isWinner(bo, le):
             (bo[3] == le and bo[5] == le and bo[7] == le) # second diagnol
            )
 
-
-# In[87]:
-
-
 def getBoardCopy(board):
     dupeboard = []
     for i in board:
         dupeboard.append(i)
     return dupeBoard
 
-
-# In[88]:
-
-
 def isSpaceFree(board, move):
     return board[move] == ' '
-
-
-# In[89]:
-
 
 def getPlayerMove(board):
     move = ' '
     while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)):
         move = input("What's your next move? (1-9)")
         return int(move)
-
-
-# In[90]:
-
 
 def chooseRandomMoveFromList(board, movesList):
     possibleMoves = []
@@ -125,10 +78,6 @@ def chooseRandomMoveFromList(board, movesList):
         return possibleMoves
     else:
         return None
-
-
-# In[97]:
-
 
 def getComputerMove(board, computerLetter):
     if computerLetter == 'X':
@@ -159,28 +108,12 @@ def getComputerMove(board, computerLetter):
     
     return chooseRandomMoveFromList(board, [2,4,6,8]) #copy
             
-
-
-# In[98]:
-
-
 def isBoardFull(board):
     for i in range(1,10):
         if isSpaceFree(board, i):
             return False
     else:
         return True
-            
-
-
-# In[99]:
-
-
-
-
-
-# In[103]:
-
 
 print('Welcome To The Tic Tac Toe')
 while True:
@@ -228,23 +161,3 @@ while True:
                 
     if not playAgain():
         break
-    
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
